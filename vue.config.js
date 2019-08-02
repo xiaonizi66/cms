@@ -11,8 +11,10 @@ module.exports = {
     hotOnly: false,
     proxy: {
       '/api': {
-        target: 'http://www.baidu.com',
-        changeOrigin: true,
+        target: 'http://39.98.190.128:8080/',
+        secure: false, // 如果是https接口，需要配置这个参数
+        changeOrigin: true, // 是否跨域
+        ws: true, // 是否代理websockets
         pathRewrite: {
           '^/api': '/'
         }
