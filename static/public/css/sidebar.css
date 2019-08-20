@@ -1,11 +1,11 @@
 #app .main-container {
   min-height: 100%;
   transition: margin-left 0.28s;
-  margin-left: 180px;
+  margin-left: 220px;
 }
 #app .sidebar-container {
   transition: width .28s;
-  width: 180px !important;
+  width: 220px !important;
   height: 100%;
   position: fixed;
   font-size: 0px;
@@ -55,14 +55,21 @@
 #app .hideSidebar .el-submenu > .el-submenu__title .el-submenu__icon-arrow {
   display: none;
 }
+#app .el-submenu__title i,
+#app .el-menu-item i {
+  color: #bfcbd9;
+}
+#app .el-menu-item.is-active i {
+  color: #409EFF;
+}
 #app .sidebar-container .nest-menu .el-submenu > .el-submenu__title,
 #app .sidebar-container .el-submenu .el-menu-item {
   min-width: 180px !important;
-  background-color: $subMenuBg !important;
+  background-color: #1f2d3d !important;
 }
 #app .sidebar-container .nest-menu .el-submenu > .el-submenu__title:hover,
 #app .sidebar-container .el-submenu .el-menu-item:hover {
-  background-color: $menuHover !important;
+  background-color: #001528 !important;
 }
 #app .el-menu--collapse .el-menu .el-submenu {
   min-width: 180px !important;

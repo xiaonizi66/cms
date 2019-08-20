@@ -1,18 +1,12 @@
 import axios from 'axios'
 import { Message, MessageBox } from 'element-ui'
-import apiPath from '@/utils/api'
 import store from '../store'
 import { getToken } from '@/utils/auth'
 
-const ApiGet = apiPath.get
-const ApiPost = apiPath.post
 // 创建axios实例
 const service = axios.create({
   baseURL: '/api/', // api的base_url
-  timeout: 15000, // 请求超时时间
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded' // 设置跨域头部
-  }
+  timeout: 15000 // 请求超时时间
 })
 
 // request 拦截器
@@ -62,56 +56,4 @@ service.interceptors.response.use(
     })
     return Promise.reject(error)
   })
-
-/**
- * get请求
- * @param {*} url
- * @param {*} data
- */
-export function get (url, data = {}, id) {
-  return service({
-    url: ApiGet[url] + id ? '/' + id : '',
-    method: 'get',
-    data: data
-  })
-}
-/**
- * get请求图片验证码
- * @param {*} url
- * @param {*} data
- */
-export function getImg (url, data = {}) {
-  return service({
-    url: ApiGet[url] + '?' + Math.random(),
-    method: 'get',
-    data: data,
-    responseType: 'arraybuffer'
-  })
-}
-/**
- * post请求
- * @param {*} url
- * @param {*} data
- */
-// export function post (url, data = {}, id) {
-//   return service({
-//     url: api[url] + id ? '/' + id : '',
-//     method: 'post',
-//     data: data
-//   })
-// }
-
-let post = {}
-Object.keys(ApiPost).forEach(key => {
-  post[key] = (data = {}, id) => {
-    id = id ? '/' + id : ''
-    console.log(ApiPost[key] + id)
-    return service({
-      url: ApiPost[key] + id,
-      method: 'post',
-      data: data
-    })
-  }
-})
-
-export default post
+export default service

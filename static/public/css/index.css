@@ -1,3 +1,4 @@
+@import 'iconfont.css';
 #app .main-container {
   min-height: 100%;
   transition: margin-left 0.28s;
@@ -54,6 +55,13 @@
 }
 #app .hideSidebar .el-submenu > .el-submenu__title .el-submenu__icon-arrow {
   display: none;
+}
+#app .el-submenu__title i,
+#app .el-menu-item i {
+  color: #bfcbd9;
+}
+#app .el-menu-item.is-active i {
+  color: #409EFF;
 }
 #app .sidebar-container .nest-menu .el-submenu > .el-submenu__title,
 #app .sidebar-container .el-submenu .el-menu-item {
@@ -120,10 +128,40 @@ a:hover {
   clear: both;
   height: 0;
 }
-.c_main {
-  color: '#333';
+.font-extra-large {
+  font-size: 20px;
+  color: #303133;
 }
-.display_b {
+.font-title-large {
+  font-size: 18px;
+  color: #303133;
+}
+.font-title-medium {
+  font-size: 16px;
+  color: #303133;
+}
+.font-medium {
+  font-size: 16px;
+  color: #606266;
+}
+.font-small {
+  font-size: 14px;
+  color: #606266;
+}
+.font-extra-small {
+  font-size: 13px;
+  color: #606266;
+}
+.color-main {
+  color: #409EFF;
+}
+.color-red {
+  color: #f45353;
+}
+.color-oriange {
+  color: #e6a23c;
+}
+.display-block {
   display: block;
 }
 .float-l {
@@ -143,6 +181,16 @@ a:hover {
 }
 .w180 {
   width: 180px !important;
+}
+.padding-40 {
+  padding: 40px;
+}
+.out-border {
+  border: 1px solid #DCDFE6;
+}
+.el-dialog__header {
+  background: #fefefe;
+  border-bottom: 1px solid #f2f2f2;
 }
 .login-container {
   background-image: url(../assets/imgs/login_bg.png);

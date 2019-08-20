@@ -1,4 +1,5 @@
 @barWidth:220px;
+@import './variables.less';
 #app {
 
     // 主体区域
@@ -66,7 +67,12 @@
         }
       }
     }
-  
+    .el-submenu__title i, .el-menu-item i{
+      color: rgb(191, 203, 217);
+    }
+    .el-menu-item.is-active i{
+      color: @main;
+    }
     .sidebar-container .nest-menu .el-submenu>.el-submenu__title,
     .sidebar-container .el-submenu .el-menu-item {
       min-width: 180px !important;

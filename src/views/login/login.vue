@@ -86,11 +86,9 @@ export default {
     },
     handleLogin () {
       this.$refs.loginForm.validate(valid => {
-        console.log(1, valid)
         if (valid) {
           this.loading = true
           this.$store.dispatch('Login', this.loginForm).then(() => {
-            console.log(2)
             this.loading = false
             this.$router.push({ path: '/' })
           }).catch((error) => {

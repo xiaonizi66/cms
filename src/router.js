@@ -16,31 +16,69 @@ export default new Router({
       children: [{
         path: 'home',
         name: 'home',
-        component: () => import(/* webpackChunkName: "Home" */ './views/home/Home'),
-        meta: { title: '首页' }
+        component: () => import('./views/home/Home'),
+        meta: { title: '首页', icon: 'icon-shouye' }
       }]
     },
     {
-      path: '/about',
+      path: '/order',
       component: Layout,
-      redirect: '/about/info',
-      name: 'about',
-      meta: { title: '关于' },
+      redirect: '/order/list',
+      name: 'order',
+      meta: { title: '关于', icon: 'icon-dingdan' },
       children: [{
-        path: 'info',
-        name: 'info',
-        component: () => import('./views/about/info'),
-        meta: { title: '个人信息' }
-      },
-      {
         path: 'list',
         name: 'list',
-        component: () => import('./views/about/list'),
-        meta: { title: '产品列表' }
+        component: () => import('./views/order/list'),
+        meta: { title: '订单列表', icon: 'icon-dingdan' }
+      }]
+    },
+    {
+      path: '/systemController',
+      component: Layout,
+      redirect: '/systemController/userController',
+      name: 'systemController',
+      meta: { title: '系统管理', icon: 'icon-xitongguanli' },
+      children: [{
+        path: 'userController',
+        name: 'userController',
+        component: () => import('./views/systemController/userController'),
+        meta: { title: '用户管理' }
       },
       {
-        path: '*', redirect: '/404', hidden: true
+        path: 'roleController',
+        name: 'roleController',
+        component: () => import('./views/systemController/roleController'),
+        meta: { title: '角色管理' }
       }]
+    },
+    {
+      path: '/product',
+      component: Layout,
+      redirect: '/product/fundOpenDay',
+      name: 'product',
+      meta: { title: '产品配置', icon: 'icon-chanpinguanli' },
+      children: [{
+        path: 'fundOpenDay',
+        name: 'fundOpenDay',
+        component: () => import('./views/product/fundOpenDay'),
+        meta: { title: '产品开放日' }
+      },
+      {
+        path: 'fundSeries',
+        name: 'fundSeries',
+        component: () => import('./views/product/fundSeries'),
+        meta: { title: '产品系列' }
+      },
+      {
+        path: 'appHotSale',
+        name: 'appHotSale',
+        component: () => import('./views/product/appHotSale'),
+        meta: { title: 'app热销配置' }
+      }]
+    },
+    {
+      path: '*', redirect: '/404', hidden: true
     }
   ]
 })
