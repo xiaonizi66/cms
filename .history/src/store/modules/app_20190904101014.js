@@ -7,7 +7,7 @@ const app = {
       withoutAnimation: false
     },
     device: 'desktop',
-    theme: Cookies.get('theme') || 'themea'
+    theme: ''
   },
   mutations: {
     TOGGLE_SIDEBAR: state => {
@@ -25,10 +25,6 @@ const app = {
     },
     TOGGLE_DEVICE: (state, device) => {
       state.device = device
-    },
-    UPDATE_THEME: (state, theme) => {
-      state.theme = theme
-      Cookies.set('theme')
     }
   },
   actions: {
@@ -40,9 +36,6 @@ const app = {
     },
     ToggleDevice: ({ commit }, device) => {
       commit('TOGGLE_DEVICE', device)
-    },
-    UpdateTheme: ({ commit }, device) => {
-      commit('UPDATE_THEME', device)
     }
   }
 }

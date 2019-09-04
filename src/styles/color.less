@@ -1,0 +1,49 @@
+//sidebar
+@import url('./theme.less');
+  @theme1 : #304156;
+  @color1: #eee;
+  @menuHover1:#001528;
+
+
+
+
+  @theme2 : #c7edcc;
+  @color2: #333;
+  @menuHover2:#7ed4cf;
+
+
+
+
+  @theme3 : #111;
+  @color3: #ddd;
+  @menuHover3:#59acb1;
+  // 添加新主题   themea 只需传入a,及对应class的index后缀1
+  body{
+    .themePreinstall(a,1); // themea
+    .themePreinstall(b,2); // themeb
+    .themePreinstall(c,3); // themec
+  }
+  
+  .themePreinstall( @name,@number){
+    .theme@{name}{
+      @theme: 'theme@{number}';
+      @color: 'color@{number}';
+      @menuHover: 'menuHover@{number}';
+      .theme( @@theme, @@color, @@menuHover)
+    }
+  }
+  // 选择主题-所有主题列表
+  .themeli( @name,@back,@color){
+    .@{name}-li{
+        padding: 5px;
+        background: @back;
+        color: @color;
+    }
+  }
+ 
+
+  .theme-dialog{
+    .themeli(themea,@theme1,@color1);
+    .themeli(themeb,@theme2,@color2);
+    .themeli(themec,@theme3,@color3);
+  }

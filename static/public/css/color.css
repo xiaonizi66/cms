@@ -1,0 +1,84 @@
+body .themea .scroll-container {
+  background-color: #304156;
+}
+body .themea .el-submenu__title i,
+body .themea .el-menu-item i {
+  color: #eee;
+}
+body .themea .el-menu-item.is-active i {
+  color: #eee;
+}
+body .themea .sidebar-container .el-submenu__title,
+body .themea .sidebar-container .el-menu-item {
+  background-color: #304156 !important;
+  color: #eee !important;
+}
+body .themea .sidebar-container .el-submenu__title:hover,
+body .themea .sidebar-container .el-menu-item:hover {
+  background-color: #001528 !important;
+}
+body .themea .sidebar-container .el-submenu__title.is-active,
+body .themea .sidebar-container .el-menu-item.is-active {
+  background-color: #001528 !important;
+}
+body .themeb .scroll-container {
+  background-color: #c7edcc;
+}
+body .themeb .el-submenu__title i,
+body .themeb .el-menu-item i {
+  color: #333;
+}
+body .themeb .el-menu-item.is-active i {
+  color: #333;
+}
+body .themeb .sidebar-container .el-submenu__title,
+body .themeb .sidebar-container .el-menu-item {
+  background-color: #c7edcc !important;
+  color: #333 !important;
+}
+body .themeb .sidebar-container .el-submenu__title:hover,
+body .themeb .sidebar-container .el-menu-item:hover {
+  background-color: #7ed4cf !important;
+}
+body .themeb .sidebar-container .el-submenu__title.is-active,
+body .themeb .sidebar-container .el-menu-item.is-active {
+  background-color: #7ed4cf !important;
+}
+body .themec .scroll-container {
+  background-color: #111;
+}
+body .themec .el-submenu__title i,
+body .themec .el-menu-item i {
+  color: #ddd;
+}
+body .themec .el-menu-item.is-active i {
+  color: #ddd;
+}
+body .themec .sidebar-container .el-submenu__title,
+body .themec .sidebar-container .el-menu-item {
+  background-color: #111 !important;
+  color: #ddd !important;
+}
+body .themec .sidebar-container .el-submenu__title:hover,
+body .themec .sidebar-container .el-menu-item:hover {
+  background-color: #59acb1 !important;
+}
+body .themec .sidebar-container .el-submenu__title.is-active,
+body .themec .sidebar-container .el-menu-item.is-active {
+  background-color: #59acb1 !important;
+}
+.theme-dialog .themea-li {
+  padding: 5px;
+  background: #304156;
+  color: #eee;
+}
+.theme-dialog .themeb-li {
+  padding: 5px;
+  background: #c7edcc;
+  color: #333;
+}
+.theme-dialog .themec-li {
+  padding: 5px;
+  background: #111;
+  color: #ddd;
+}

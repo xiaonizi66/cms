@@ -1,0 +1,26 @@
+.theme(@backcolor:#304156, @color:#fff, @menuHover:#001528) {
+    .scroll-container{
+        background-color: @backcolor;
+      }
+      .el-submenu__title i, .el-menu-item i{
+        color: @color;
+      }
+      .el-menu-item.is-active i{
+        color: @color;
+      }
+      .sidebar-container .el-submenu__title,
+      .sidebar-container .el-menu-item {
+        background-color: @backcolor !important;
+        color: @color !important;
+        &:hover {
+          background-color: @menuHover !important;
+        }
+        &.is-active{
+          background-color: @menuHover !important;
+        }
+      }
+      // .sidebar-container .el-submenu{
+      //   border-bottom: 1px solid #fff;
+      // }
+
+}

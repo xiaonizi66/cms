@@ -15,7 +15,7 @@
               首页
             </el-dropdown-item>
           </router-link>
-          <div @click="editPassword">
+          <div @click="showUpdatePasswordDialog">
             <el-dropdown-item class="inlineBlock">
              修改密码
             </el-dropdown-item>
@@ -25,6 +25,11 @@
               个人信息
             </el-dropdown-item>
           </router-link>
+          <div @click="showSelectThemeDialog">
+            <el-dropdown-item>
+              修改主题
+            </el-dropdown-item>
+          </div>
           <div @click="logout">
             <el-dropdown-item divided>
               退出
@@ -33,75 +38,32 @@
         </el-dropdown-menu>
       </el-dropdown>
     </el-menu>
-    <el-dialog title="修改密码" :visible.sync="dialogPasswordVisible" :append-to-body="true" width="30%" style="z-index:1000;" @close="cancelPassword('changePasswordForm')">
-      <div class="dialog-info">
-        <i class="el-icon-info color-oriange mr-5"></i><b>密码格式为6-18位字符</b>
-      </div>
-      <el-form autoComplete="off"
-                :model="changePasswordForm"
-                :rules="changePasswordRules"
-                ref="changePasswordForm">
-        <el-form-item label="原密码" label-width="100px" prop="oldPassword">
-          <el-input v-model="changePasswordForm.oldPassword" placeholder="请输入原密码" autoComplete="off" type="password"></el-input>
-        </el-form-item>
-        <el-form-item label="新密码" label-width="100px" prop="newPassword">
-          <el-input v-model="changePasswordForm.newPassword" placeholder="请输入6-18位新密码" autoComplete="off" type="password"></el-input>
-        </el-form-item>
-        <el-form-item label="确认新密码" label-width="100px" prop="AgainNewPassword">
-          <el-input v-model="changePasswordForm.AgainNewPassword" placeholder="请确认新密码" autoComplete="off" type="password"></el-input>
-        </el-form-item>
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="cancelPassword('changePasswordForm')">取 消</el-button>
-        <el-button type="primary">确 定</el-button>
-      </div>
-    </el-dialog>
+    <ChangePassword v-if="updatePasswordDialogVisible" @updatePasswordDialogToggle = "updatePasswordDialogToggle"></ChangePassword>
+    <SelectTheme v-if="selectThemeDialogVisible" @selectThemeDialogToggle = "selectThemeDialogToggle"></SelectTheme>
   </div>
 </template>
 <script>
 import Breadcrumb from '@/components/breadcrumb'
 import Hamburger from '@/components/hamburger'
+import ChangePassword from '@/components/changePassword'
+import SelectTheme from '@/components/selectTheme'
 import { mapGetters } from 'vuex'
-import { validatePassword } from '@/utils/validate.js'
 export default {
   data () {
-    const validatePass = (rule, value, callback) => {
-      if (!validatePassword(value)) {
-        callback(new Error('密码为6-18位的数字或字母'))
-      } else {
-        callback()
-      }
-    }
-    const validateAgainPass = (rule, value, callback) => {
-      if (value !== this.changePasswordForm.newPassword) {
-        callback(new Error('两次密码格式不一致'))
-      } else {
-        callback()
-      }
-    }
     return {
-      changePasswordForm: {
-        oldPassword: '',
-        newPassword: '',
-        AgainNewPassword: ''
-      },
-      changePasswordRules: {
-        oldPassword: [{ required: true, trigger: 'blur', validator: validatePass }],
-        newPassword: [{ required: true, trigger: 'blur', validator: validatePass }],
-        AgainNewPassword: [{ required: true, tigger: 'blur', validator: validateAgainPass }]
-      },
-      dialogPasswordVisible: false
-
+      updatePasswordDialogVisible: false,
+      selectThemeDialogVisible: false
     }
   },
   components: {
     Breadcrumb,
-    Hamburger
+    Hamburger,
+    ChangePassword,
+    SelectTheme
   },
   computed: {
     ...mapGetters([
-      'sidebar',
-      'avatar'
+      'sidebar'
     ])
   },
   methods: {
@@ -109,16 +71,31 @@ export default {
       this.$store.dispatch('ToggleSideBar')
     },
     logout () {
-      this.$store.dispatch('logOut').then(() => {
-        location.reload()
+      this.$confirm('确认退出？').then(() => {
+        this.$store.dispatch('logOut').then(() => {
+          location.reload()
+        })
+      }).catch(() => {
+
       })
     },
-    cancelPassword (form) {
-      this.$refs[form].resetFields()
-      this.dialogPasswordVisible = false
+    /**
+     * 修改密码-弹窗显示隐藏
+     */
+    updatePasswordDialogToggle (value) {
+      this.updatePasswordDialogVisible = value
     },
-    editPassword () {
-      this.dialogPasswordVisible = true
+    showUpdatePasswordDialog () {
+      this.updatePasswordDialogToggle(true)
+    },
+    /**
+     * 修改主题-弹窗显示隐藏
+     */
+    selectThemeDialogToggle (value) {
+      this.selectThemeDialogVisible = value
+    },
+    showSelectThemeDialog () {
+      this.selectThemeDialogToggle(true)
     }
   }
 }

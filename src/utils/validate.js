@@ -1,5 +1,5 @@
 export function isvalidateUsername (str) {
-  const validMap = ['admin', 'test']
+  const validMap = ['admin', 'test1', 'admin1']
   return validMap.indexOf(str.trim()) >= 0
 }
 

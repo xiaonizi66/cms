@@ -29,7 +29,9 @@ Object.keys(ApiPost).forEach(key => {
     return service({
       url: ApiPost[key] + id,
       method: 'post',
-      data: data
+      data: data,
+      contentType: 'json/application',
+      dataType: 'json'
     })
   }
 })

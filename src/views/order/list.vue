@@ -221,7 +221,6 @@ export default {
     // 查询
     handleSearchList () {
       this.listQuery.pageNum = 1
-      console.log(this.listQuery.orderSn)
       this.getList()
     },
     // 重置
@@ -257,7 +256,6 @@ export default {
       this.listLoading = true
       orderList(this.listQuery).then(res => {
         this.listLoading = false
-        console.log(res.data.list)
         this.list = res.data.list
         this.total = res.data.total
       })

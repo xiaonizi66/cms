@@ -28,7 +28,6 @@ const app = {
     },
     UPDATE_THEME: (state, theme) => {
       state.theme = theme
-      Cookies.set('theme')
     }
   },
   actions: {
@@ -43,6 +42,7 @@ const app = {
     },
     UpdateTheme: ({ commit }, device) => {
       commit('UPDATE_THEME', device)
+      Cookies.set('theme')
     }
   }
 }

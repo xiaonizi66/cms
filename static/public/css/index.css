@@ -91,6 +91,15 @@
 #app .withoutAnimation .sidebar-container {
   transition: none;
 }
+.themea .scroll-container {
+  background-color: #304156;
+}
+.themeb .scroll-container {
+  background-color: #304156;
+}
+.themec .scroll-container {
+  background-color: #304156;
+}
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -167,6 +176,9 @@ a:hover {
 .float-l {
   float: left;
 }
+.float-r {
+  float: right;
+}
 .line-h20 {
   line-height: 20px;
 }
@@ -175,6 +187,18 @@ a:hover {
 }
 .ml-10 {
   margin-left: 10px;
+}
+.mr-5 {
+  margin-right: 5px;
+}
+.mr-10 {
+  margin-right: 10px;
+}
+.mr-15 {
+  margin-right: 15px;
+}
+.mt-15 {
+  margin-top: 15px;
 }
 .w100 {
   width: 100% !important;
@@ -191,6 +215,15 @@ a:hover {
 .el-dialog__header {
   background: #fefefe;
   border-bottom: 1px solid #f2f2f2;
+}
+.el-table th {
+  background: #f7f7f7;
+}
+.el-table tr:nth-child(even) {
+  background: #f7f7f7;
+}
+.el-table--enable-row-transition .el-table__body tr:hover td {
+  background: #e5e5e5;
 }
 .login-container {
   background-image: url(../assets/imgs/login_bg.png);

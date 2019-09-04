@@ -50,6 +50,18 @@ export default new Router({
         name: 'roleController',
         component: () => import('./views/systemController/roleController'),
         meta: { title: '角色管理' }
+      },
+      {
+        path: 'departController',
+        name: 'departController',
+        component: () => import('./views/systemController/departController'),
+        meta: { title: '组织机构' }
+      },
+      {
+        path: 'dataDictionaryController',
+        name: 'dataDictionaryController',
+        component: () => import('./views/systemController/dataDictionaryController'),
+        meta: { title: '数据字典' }
       }]
     },
     {

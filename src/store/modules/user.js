@@ -5,18 +5,11 @@ const user = {
   state: {
     token: getToken(),
     name: '',
-    avatar: '',
     roles: []
   },
   mutations: {
-    SET_TOKEN: (state, token) => {
-      state.token = token
-    },
     SET_NAME: (state, name) => {
       state.name = name
-    },
-    SET_AVATAR: (state, avatar) => {
-      state.avatar = avatar
     },
     SET_ROLES: (state, roles) => {
       state.roles = roles
@@ -27,11 +20,7 @@ const user = {
       const username = userInfo.username.trim()
       return new Promise((resolve, reject) => {
         login({ username, password: userInfo.password }).then(response => {
-          console.log(response)
-          const data = response.data
-          const tokenStr = data.tokenHead + data.token
-          setToken(tokenStr)
-          commit('SET_TOKEN', tokenStr)
+          if (response.success) setToken({ username })
           resolve()
         }).catch(error => {
           reject(error)
@@ -49,7 +38,6 @@ const user = {
             reject(new Error('getInfo: roles must be a non-null array !'))
           }
           commit('SET_NAME', data.username)
-          commit('SET_AVATAR', data.icon)
           resolve(response)
         }).catch(error => {
           reject(error)
@@ -59,7 +47,7 @@ const user = {
     // 退出
     logOut ({ commit, state }) {
       return new Promise((resolve, reject) => {
-        logout(state.token).then(() => {
+        logout().then(() => {
           commit('SET_TOKEN', '')
           commit('SET_ROLES', [])
           removeToken()

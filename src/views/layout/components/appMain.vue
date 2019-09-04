@@ -10,3 +10,8 @@ export default {
   name: 'AppMain'
 }
 </script>
+<style lang="less">
+  .app-main{
+    padding-top: 20px;
+  }
+</style>
